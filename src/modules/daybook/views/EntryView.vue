@@ -17,7 +17,6 @@
     <hr>
 
     <div class="d-flex flex-column px-3 h-75">
-      {{ entry.picture }}
       <textarea class="form-control" placeholder="¿Qué sucedió hoy?" v-model="entry.text"></textarea>
     </div>
 
@@ -93,7 +92,6 @@ export default {
       Swal.showLoading()
 
       const picture = await uploadImage(this.file)
-
       this.entry.picture = picture
 
       if (this.entry.id) {
@@ -150,6 +148,7 @@ export default {
   },
   watch: {
     id() {
+      this.entry = null
       this.loadEntry()
     }
   }

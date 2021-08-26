@@ -148,7 +148,6 @@ export default {
   },
   watch: {
     id() {
-      this.entry = null
       this.loadEntry()
     }
   }

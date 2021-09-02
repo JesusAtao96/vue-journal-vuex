@@ -36,6 +36,7 @@ import getDayMonthYear from '../helpers/getDayMonthYear'
 import uploadImage from '../helpers/uploadImage'
 
 export default {
+  name: 'EntryView',
   props: {
     id: {
       type: String,
@@ -49,7 +50,7 @@ export default {
     return {
       entry: null,
       localImage: null,
-      file: null
+      file: null,
     }
   },
   computed: {
@@ -70,6 +71,7 @@ export default {
   methods: {
     loadEntry() {
       let entry;
+      this.localImage = null
 
       if (this.id === 'new') {
         entry = {
@@ -113,7 +115,7 @@ export default {
       })
 
       if (isConfirmed) {
-        new Swal({
+        Swal.fire({
           title: 'Espere por favor',
           allowOutsideClick: false
         })
